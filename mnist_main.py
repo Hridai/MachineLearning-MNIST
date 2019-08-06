@@ -96,17 +96,3 @@ fpr, tpr, thresholds = roc_curve( y_train_5, y_scores )
 plot_roc_curve(fpr,tpr)
 plt.show()
 
-
-## Multiclass Prediction
-from sklearn.ensemble import RandomForestClassifier
-forest_clf = RandomForestClassifier()
-forest_clf.fit( X_train, y_train )
-forest_clf.predict( [some_digit] )
-forest_clf.classes_
-forest_clf.predict_proba( [some_digit] ) #shows list of probablities wrt predictable outcomes
-
-from sklearn.model_selection import cross_val_score
-cross_val_score( forest_clf, X_train, y_train, cv=3, scoring='accuracy')
-
-
-## Training different models on the training set, running it against the test set
