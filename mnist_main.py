@@ -73,7 +73,7 @@ from sklearn.model_selection import cross_val_score
 cross_val_score( sgd_clf, X_train, y_train_5, cv=3, scoring='accuracy')
 
 
-## prediction metrix, plotting precision/recall graph
+## prediction matrix, plotting precision/recall graph
 from sklearn.model_selection import cross_val_predict
 y_train_pred = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3)
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, precision_recall_curve, roc_curve
@@ -95,3 +95,18 @@ plt.show()
 fpr, tpr, thresholds = roc_curve( y_train_5, y_scores )
 plot_roc_curve(fpr,tpr)
 plt.show()
+
+
+## Multiclass Prediction
+from sklearn.ensemble import RandomForestClassifier
+forest_clf = RandomForestClassifier()
+forest_clf.fit( X_train, y_train )
+forest_clf.predict( [some_digit] )
+forest_clf.classes_
+forest_clf.predict_proba( [some_digit] ) #shows list of probablities wrt predictable outcomes
+
+from sklearn.model_selection import cross_val_score
+cross_val_score( forest_clf, X_train, y_train, cv=3, scoring='accuracy')
+
+
+## Training different models on the training set, running it against the test set
