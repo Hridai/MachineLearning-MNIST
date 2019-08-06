@@ -95,4 +95,3 @@ plt.show()
 fpr, tpr, thresholds = roc_curve( y_train_5, y_scores )
 plot_roc_curve(fpr,tpr)
 plt.show()
-
