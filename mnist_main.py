@@ -110,3 +110,14 @@ cross_val_score( forest_clf, X_train, y_train, cv=3, scoring='accuracy')
 
 
 ## Training different models on the training set, running it against the test set
+from sklearn.model_selection import GridSearchCV
+
+## KNN
+from sklearn.neighbors import KNeighborsClassifier
+param_grid = {'n_neighbors' : [2,4,6] }
+knn_clf = KNeighborsClassifier()
+gridsearch = GridSearchCV( knn_clf, param_grid, cv=3 )
+gridsearch.fit( X_train, y_train )
+gridsearch.best_estimator_
+gridsearch.cv_results_
+gridsearch.cv_results_
